@@ -36,11 +36,16 @@
 #include "ofFbo.h"
 #include "ofVec3f.h"
 #include "ofShader.h"
+#include "ofPoint.h"
+#include "ofMain.h"
+
 #ifdef _ITG_TWEAKABLE
     #include "Tweakable.h"
 #endif
 
 #define STRINGIFY(A) #A
+
+using namespace std;
 
 namespace itg
 {
@@ -52,7 +57,7 @@ namespace itg
     public:
         typedef shared_ptr<RenderPass> Ptr;
         
-        RenderPass(const ofVec2f& aspect, bool arb, const string& name);
+        RenderPass(const ofVec2f& aspect, bool arb, const std::string& name);
         
         virtual void render(ofFbo& readFbo, ofFbo& writeFbo, ofTexture& depth);
         virtual void render(ofFbo& readFbo, ofFbo& writeFbo) {}
@@ -73,7 +78,7 @@ namespace itg
         virtual bool hasArbShader() { return false; }
 
 #ifndef _ITG_TWEAKABLE
-        string getName() const { return name; }
+        std::string getName() const { return name; }
 #endif
 
     protected:
@@ -85,7 +90,7 @@ namespace itg
     
     private:
 #ifndef _ITG_TWEAKABLE
-        string name;
+        std::string name;
 #endif
         bool enabled;
     };

@@ -31,7 +31,7 @@
  */
 #include "PostProcessing.h"
 #include "ofMain.h"
-
+enum ofFboBeginMode {NoDefaults};
 namespace itg
 {
     void PostProcessing::init(unsigned width, unsigned height, bool arb)
